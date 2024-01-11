@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex-center {
+	@apply flex justify-center items-center;
+}
+
+.flex-between {
+	@apply flex justify-between items-center;
+}
+
+body {
+	text-align: center;
+	font-size: 1em;
+	font-family: verdana;
+	margin: 0;
+}
+h1 {
+	font-size: 1.2em;
+	padding: 20px 0;
+	border-bottom: 1px solid #eee;
+	margin: 0 0 30px 0;
+	color: #333;
+}
+
+.row-letter {
+	@apply w-14 h-14 uppercase rounded-md border-2 border-gray-500 m-1 flex-center font-bold text-4xl text-grayBlack bg-grayWhite;
+}
+
+.green {
+	--background: #79b851;
+	--border-color: #79b851;
+}
+
+.yellow {
+	--background: #f3c237;
+	--border-color: #f3c237;
+}
+
+.gray {
+	--background: #a1a1a1;
+	--border-color: #a1a1a1;
+}
+
+.green, .yellow, .gray {
+	animation: FlipIn 0.4s ease-in forwards;
+}
+
+.popIn {
+	animation-name: PopIn;
+	animation-duration: 300ms;
+}
+
+@keyframes PopIn {
+	from {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+
+	40% {
+		transform: scale(1.1);
+		opacity: 1;
+	}
+}
+
+/* .flipIn {
+  animation-name: FlipIn;
+  animation-duration: 125ms;
+  animation-timing-function: ease-in;
+} */
+
+@keyframes FlipIn {
+	0% {
+		transform: rotateX(0);
+	}
+
+  45% {
+    transform: rotateX(-90deg);
+  }
+
+  55% {
+    transform: rotateX(-90deg);
+		background: var(--background);
+		border-color: var(--border-color);
+  }
+
+	100% {
+		transform: rotateX(0);
+		background: var(--background);
+		border-color: var(--border-color);
+    color: white;
+	}
+}
+
+.flipOut {
+	animation-name: FlipOut;
+	animation-duration: 50ms;
+	animation-timing-function: ease-in;
+}
+
+@keyframes FlipOut {
+	0% {
+		transform: rotateX(-90deg);
+	}
+
+	100% {
+		transform: rotateX(0);
+	}
+}
+
+/* /////////////////////////////////////////////////////// */
+
+html.dark .Row-letter {
+	color: #fff;
+	background: #191a24;
+	border: 2px solid #414458;
+}
+
+html.dark .Row-letter.selected {
+	border-color: #7b7f98;
+}
+
+.App-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 600px;
+	width: 100%;
+	position: relative;
+}
+
+.App-container h1 {
+	margin-top: 0;
+	margin-bottom: 45px;
+}
+
+.Game {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.Game p {
+	text-align: center;
+}
+
+.Game,
+.Game-keyboard {
+	display: flex;
+	flex-direction: column;
+}
+
+.Game-keyboard {
+	margin-top: 30px;
+}
+
+.Game-keyboard-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+}
+
+.Game-keyboard-button {
+	align-items: center;
+	background-color: #dce1ed;
+	color: #414a5e !important;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	color: inherit;
+	cursor: pointer;
+	user-select: none;
+	display: flex;
+	flex: 1 1;
+	font-size: 17px;
+	font-weight: 700;
+	justify-content: center;
+	margin: 3px;
+	min-height: 46px;
+	padding: 3px;
+	text-decoration: inherit;
+	text-transform: capitalize;
+	transition: 0.2s;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+	-webkit-touch-callout: none;
+}
+
+.Game-keyboard-button-wide {
+	flex: 2 1;
+	padding: 3px;
+}
+
+.Game-keyboard-button-backspace {
+	padding: 10px !important;
+}
+
+.Game-keyboard-button svg {
+	fill: currentcolor;
+	width: 26px;
+	height: 26px;
+}
+
+.Game-keyboard-button:hover {
+	background: #c4cbdd;
+}
+
+.Game-keyboard-button:focus {
+	background: #dce1ed;
+}
+
+.Game-keyboard-button:active {
+	background: #b1b9ce;
+}
+
+html.dark .Game-keyboard-button {
+	color: #fff !important;
+	background-color: #656780;
+}
+
+html.dark .Game-keyboard-button:hover {
+	background: #787a94;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+	-webkit-touch-callout: none;
+}
+
+html.dark .Game-keyboard-button:focus {
+	background: #898ba4;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+	-webkit-touch-callout: none;
+}
+
+html.dark .Game-keyboard-button:active {
+	background: #9496ae;
+}
+
+html.dark .Game-keyboard-button:active {
+	background: #81859c;
+}
+
+.letter-correct {
+	background-color: #79b851 !important;
+	border: 2px solid #79b851 !important;
+	color: #fff !important;
+}
+
+.letter-elsewhere {
+	background-color: #f3c237 !important;
+	border: 2px solid #f3c237 !important;
+	color: #fff !important;
+}
+
+.letter-absent {
+	background-color: #a4aec4 !important;
+	border: 2px solid transparent !important;
+	color: #fff !important;
+}
+
+.grey_text {
+	color: #fff !important;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #a4aec4;
+}
+
+.yellow_text {
+	color: #fff !important;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #f3c237;
+}
+
+.green_text {
+	color: #fff !important;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #79b851;
+}
